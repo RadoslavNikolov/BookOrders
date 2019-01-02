@@ -1,0 +1,136 @@
+﻿msgid "Welcome to the administration panel!"
+msgstr "Добре дошли в панел администрация!"
+
+msgid "Users"
+msgstr "Потребители"
+
+msgid "Logout"
+msgstr "Изход"
+
+msgid "Login"
+msgstr "Вход"
+
+msgid "Log in"
+msgstr "Вход в системата"
+
+msgid "Register"
+msgstr "Регистрация"
+
+msgid "Register as a new user"
+msgstr "Регистрация като нов потребител"
+
+msgid "Administration"
+msgstr "Администрация"
+
+msgid "Hello"
+msgstr "Здравейте"
+
+msgid "Privacy"
+msgstr "Лични данни"
+
+msgid "Back"
+msgstr "Обратно"
+
+msgid "BackToMainView"
+msgstr "Обратно в основен панел"
+
+msgid "Create a new account"
+msgstr "Създаване на нов потребител"
+
+msgid "Username"
+msgstr "Потребителско име"
+
+msgid "First name"
+msgstr "Име"
+
+msgid "Last name"
+msgstr "Фамилия"
+
+msgid "Email"
+msgstr "Електронна поща"
+
+msgid "Email confirmed"
+msgstr "Потвърдена поща"
+
+msgid "Phone number"
+msgstr "Тел.номер"
+
+msgid "Password"
+msgstr "Парола"
+
+msgid "Confirm password"
+msgstr "Потвърждаване на парола"
+
+msgid "Remember me?"
+msgstr "Запомни ме?"
+
+msgid "Use a local account to log in"
+msgstr "Използвайте валидно потребителско име за вход"
+
+msgid "Forgot your password"
+msgstr "Забравена парола"
+
+msgid "Username is required"
+msgstr "Потребителското име е задължително"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "No"
+msgstr "Не"
+
+msgid "Profile"
+msgstr "Профил"
+
+msgid "Profile update"
+msgstr "Промяна на профил"
+
+msgid "Save"
+msgstr "Запис"
+
+msgid "Set password"
+msgstr "Смяна на парола"
+
+msgid "New password"
+msgstr "Нова парола"
+
+msgid "Confirm new password"
+msgstr "Потвърди новата парола"
+
+msgid "Categories"
+msgstr "Категории"
+
+msgid "New"
+msgstr "Нов"
+
+msgid "Newa"
+msgstr "Нова"
+
+msgid "Role"
+msgstr "Роля"
+
+msgid "Roles"
+msgstr "Роли"
+
+msgid "Create new role"
+msgstr "Създаване на нова роля"
+
+msgid "Create new category"
+msgstr "Създаване на нова категория"
+
+msgid "Name"
+msgstr "Наименование"
+
+msgid "Code"
+msgstr "Код"
+
+msgid "Descriprion"
+msgstr "Описание"
+
+msgid "Parent category"
+msgstr "Родителска категория"
+
+msgid "Edit category"
+msgstr "Редакция на категория"
+
+

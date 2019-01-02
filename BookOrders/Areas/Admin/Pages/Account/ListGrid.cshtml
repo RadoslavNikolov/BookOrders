@@ -1,0 +1,54 @@
+﻿@page
+@model BookOrders.Areas.Admin.Pages.Account.Grids.ListGridModel
+@inject IViewLocalizer Localizer
+
+@{
+    Layout = null;
+    var usernameCaption = "Потребителско име";
+    var firstNameCaption = "Име";
+    var lastNameCaption = "Фамилия";
+    var emailCaption = "Ел. поща";
+    var emailConfirmedCaption = "Потвърдена ел.поща";
+    var disabledCaption = "Деактивиран";
+}
+
+
+@(Html.Grid(Model.Users)
+    .Build(columns =>
+    {
+        columns.Add(m => m.UserName).Titled(usernameCaption);
+        columns.Add(m => m.FirstName).Titled(firstNameCaption);
+        columns.Add(m => m.LastName).Titled(lastNameCaption);
+        columns.Add(m => m.Email).Titled(emailCaption);
+        columns.Add(m => m.EmailConfirmed)
+            .Encoded(false)
+            .RenderedAs(m => m.EmailConfirmed ? "<span class=\"badge badge-primary\">Да</span>" : "<span class=\"badge badge-warning\">Не</span>")
+            .Titled(emailConfirmedCaption);
+        columns.Add(m => m.Disabled)
+            .Encoded(false)
+            .RenderedAs(m => m.Disabled ? "<span class=\"badge badge-danger\">Да</span>" : "<span class=\"badge badge-success\">Не</span>")
+            .Titled(disabledCaption);
+        columns.Add()
+            .Encoded(false)
+            .RenderedAs(m => "<a class=\"fa fa-pencil-square-o btn btn-outline-primary\" data-toggle=\"tooltip\" title=\"Промяна на профил\" href=\"" + @Url.Page("/Account/Manage/Index", new { area = "Admin", username = m.UserName }) +"\"></a>"
+                + "<a class=\"fa fa-key btn btn-outline-secondary\" data-toggle=\"tooltip\" title=\"Промяна на парола\" data-placement=\"bottom\" href=\"" + @Url.Page("/Account/Manage/SetPassword", new { area = "Admin", username = m.UserName }) + "\"></a>"
+                + (m.Disabled
+                    ? "<button class=\"fa fa-unlock btn btn-outline-success enable-user\" data-toggle=\"tooltip\" title=\"Активиране\" data-placement=\"top\" data-username=\"" + m.UserName + "\"></button>"
+                    : "<button class=\"fa fa-lock btn btn-outline-danger disable-user\" data-toggle=\"tooltip\" title=\"Деактивиране\" data-placement=\"top\" data-username=\"" + m.UserName + "\"></button>"
+                    )
+                )
+                .Css("text-center");
+    })
+    .Empty("No data found")
+    .Pageable(pager =>
+    {
+        pager.PageSizes = new Dictionary<int, string> { { 0, "Всички" }, { 5, "5" }, { 10, "10" }, { 15, "15" }, { 20, "20" }, { 25, "25" } };
+        pager.ShowPageSizes = true;
+        pager.RowsPerPage = 5;
+    })
+    .MultiFilterable()
+    .Filterable()
+    .Sortable()
+)
+
+

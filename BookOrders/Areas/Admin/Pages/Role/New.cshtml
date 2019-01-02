@@ -1,0 +1,29 @@
+﻿@page
+@model BookOrders.Areas.Admin.Pages.Role.NewModel
+@{
+    ViewData["Title"] = Localizer["Create new role"];
+}
+
+
+<partial name="_StatusMessage" for="StatusMessage" />
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+                <h4>@ViewData["Title"]</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Input.Name">@Localizer[Html.DisplayNameFor(model => model.Input.Name)]</label>
+                    <input asp-for="Input.Name" class="form-control" />
+                    <span asp-validation-for="Input.Name" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">@Localizer["Save"]</button>
+            </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

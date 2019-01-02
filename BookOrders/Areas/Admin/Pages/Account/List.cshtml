@@ -1,0 +1,32 @@
+﻿@page
+@{
+    Layout = "/Areas/Admin/Pages/Shared/_Layout_Fluid.cshtml";
+    ViewData["Title"] = @Localizer["Users"];
+}
+
+<h3 class="text-center">@ViewData["Title"]</h3>
+<div class="form-group">
+    <a class="btn btn-link text-success fa fa-user-plus fa-3x" asp-area="Admin" asp-page="/Account/New" data-toggle="tooltip" title="@Localizer["New"]"></a>
+</div>
+<div class="mvc-grid-utils table-wrapper">
+    <div class="mvc-table-header">
+        @{
+            var uniqueId = "grid1";
+        }
+        <span></span>
+        <div class="mvc-table-header-buttons">
+            <span class="mvc-grid-toggle-btn fa fa-minus content-toggle text-primary" data-toggle="tooltip" title="Скриване/Показване"></span>
+            <span class="mvc-grid-reload-btn fa fa-refresh fa-2x text-primary" data-placement="bottom" data-toggle="tooltip" title="Презареждане на таблицата"></span>
+            @*<span class="mvc-grid-excel-export-btn fa fa-file-excel-o fa-2x text-primary" data-uniqueid="@uniqueId" data-controller="MiniProcedureReport" data-action="SummarizedOffersExport" data-toggle="tooltip" title="Експорт в Excel"></span>*@
+        </div>
+    </div>
+    <div class="mvc-table-content" id="@uniqueId">
+        @Html.AjaxGrid(Url.Page("/Account/ListGrid"))
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/js/Admin/account.js"></script>
+}
+
+

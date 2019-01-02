@@ -1,0 +1,23 @@
+﻿msgid "Welcome to the administration panel!"
+msgstr "Добре дошли в панел администрация!"
+
+msgid "Users"
+msgstr "Users_fr"
+
+msgid "Logout"
+msgstr "Изход"
+
+msgid "Login"
+msgstr "Вход"
+
+msgid "Register"
+msgstr "Регистрация"
+
+msgid "Administration"
+msgstr "Администрация"
+
+msgid "Privacy"
+msgstr "Лични данни"
+
+msgid "Hello"
+msgstr "Здравейте"

@@ -1,0 +1,57 @@
+﻿@page
+@model BookOrders.Areas.Admin.Pages.Account.NewModel
+
+@{
+    ViewData["Title"] = Localizer["Create a new account"];
+}
+
+<partial name="_StatusMessage" for="StatusMessage" />
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h4>@Localizer["Create a new account"].</h4>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Input.UserName">@Localizer[Html.DisplayNameFor(model => model.Input.UserName)]</label>
+                <input asp-for="Input.UserName" class="form-control" />
+                <span asp-validation-for="Input.UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.FirstName">@Localizer[Html.DisplayNameFor(model => model.Input.FirstName)]</label>
+                <input asp-for="Input.FirstName" class="form-control" />
+                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.LastName">@Localizer[Html.DisplayNameFor(model => model.Input.LastName)]</label>
+                <input asp-for="Input.LastName" class="form-control" />
+                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Email">@Localizer[Html.DisplayNameFor(model => model.Input.Email)]</label>
+                <input asp-for="Input.Email" class="form-control" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Password">@Localizer[Html.DisplayNameFor(model => model.Input.Password)]</label>
+                <input asp-for="Input.Password" class="form-control" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.ConfirmPassword">@Localizer[Html.DisplayNameFor(model => model.Input.ConfirmPassword)]</label>
+                <input asp-for="Input.ConfirmPassword" class="form-control" />
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Role">@Localizer[Html.DisplayNameFor(model => model.Input.Role)]</label>
+                <select asp-for="Input.Role" asp-items="Model.Roles" class="form-control"></select>
+            </div>
+            <button type="submit" class="btn btn-primary">@Localizer["Register"]</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,40 @@
+﻿@page
+@model BookOrders.Areas.Admin.Pages.RoleModel
+@{
+    ViewData["Title"] = Localizer["Roles"];
+}
+
+<h3 class="text-center">@ViewData["Title"]</h3>
+
+<div class="form-group">
+    <a class="btn btn-link text-success fa fa-plus-square-o fa-3x" asp-area="Admin" asp-page="/Role/New" data-toggle="tooltip" title="@Localizer["Newa"]"></a>
+</div>
+<div class="form-group">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Localizer["Role"]
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var r in Model.Roles)
+            {
+                <tr>
+                    <td>
+                        @r.Name
+                    </td>
+                    <td class="text-right">
+                        <button class="fa fa-ban btn btn-outline-danger delete-role" data-toggle="tooltip" title="Изтриване" data-placement="top" data-rolename="@r.Name"></button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section scripts {
+    <script type="text/javascript" src="~/js/Admin/role.js"></script>
+}

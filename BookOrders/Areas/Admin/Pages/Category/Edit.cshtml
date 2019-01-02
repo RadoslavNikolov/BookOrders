@@ -1,0 +1,50 @@
+﻿@page
+@model BookOrders.Areas.Admin.Pages.Category.EditModel
+@{
+    ViewData["Title"] = Localizer["Edit category"];
+}
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+
+<h3 class="text-center">@ViewData["Title"]</h3>
+<partial name="_StatusMessage" for="StatusMessage" />
+
+<div class="row">
+    <div class="col-md-6">
+        <form id="category-form" method="post">
+            <input asp-for="Input.Id" hidden/>
+
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Input.Name">@Localizer["Name"]</label>
+                <input asp-for="Input.Name" class="form-control" />
+                <span asp-validation-for="Input.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Code">@Localizer["Descriprion"]</label>
+                <input asp-for="Input.Code" class="form-control" />
+                <span asp-validation-for="Input.Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Descriprion">@Localizer["Descriprion"]</label>
+                <input asp-for="Input.Descriprion" class="form-control" />
+                <span asp-validation-for="Input.Descriprion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.ParentId">@Localizer[Html.DisplayNameFor(model => model.Input.ParentId)]</label>
+                <select asp-for="Input.ParentId" asp-items="Model.Categories" class="form-control parent-category"></select>
+            </div>
+            <button id="update-category-button" type="submit" class="btn btn-primary">@Localizer["Save"]</button>
+        </form>
+    </div>
+</div>
+
+<partial name="_ValidationScriptsPartial" />
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.parent-category').select2();
+        });
+    </script>
+}

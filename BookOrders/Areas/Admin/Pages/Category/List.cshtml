@@ -1,0 +1,41 @@
+﻿@page
+@model BookOrders.Areas.Admin.Pages.Category.ListModel
+@{
+    Layout = null;
+}
+
+@(Html.Grid(Model.Categories)
+    .Build(columns =>
+    {
+        columns.Add(m => m.Name);
+        columns.Add(m => m.Code);
+        columns.Add(m => m.Descriprion);
+        columns.Add(m => m.ParentName);
+        columns.Add(m => m.CreatedAtUtc).Formatted("{0:dd.MM-yyyy HH:mm}");
+        columns.Add(m => m.LastModifiedBy);
+        columns.Add(m => m.LastModifiedAtUtc).Formatted("{0:dd.MM-yyyy HH:mm}");
+        columns.Add(m => m.Disabled)
+            .Encoded(false)
+            .RenderedAs(m => m.Disabled ? "<span class=\"badge badge-danger\">Да</span>" : "<span class=\"badge badge-success\">Не</span>")
+            .Css("text-center");
+        columns.Add()
+            .Encoded(false)
+            .RenderedAs(m => "<a class=\"fa fa-pencil-square-o btn btn-outline-primary\" data-toggle=\"tooltip\" title=\"Редакция\" href=\"" + @Url.Page("/Category/Edit", new { area = "Admin", id = m.Id }) + "\"></a>"
+                + (m.Disabled
+                    ? "<button class=\"fa fa-unlock btn btn-outline-success enable-category\" data-toggle=\"tooltip\" title=\"Активиране\" data-placement=\"top\" data-name=\"" + m.NameNormalized + "\"></button>"
+                    : "<button class=\"fa fa-lock btn btn-outline-danger disable-category\" data-toggle=\"tooltip\" title=\"Деактивиране\" data-placement=\"top\" data-name=\"" + m.NameNormalized + "\"></button>"
+                    )
+                )
+                .Css("text-center");
+    })
+    .Empty("Липсват данни")
+    .Pageable(pager =>
+    {
+        pager.PageSizes = new Dictionary<int, string> { { 0, "Всички" }, { 5, "5" }, { 10, "10" }, { 15, "15" }, { 20, "20" }, { 25, "25" } };
+        pager.ShowPageSizes = true;
+        pager.RowsPerPage = 5;
+    })
+    .MultiFilterable()
+    .Filterable()
+    .Sortable()
+)
